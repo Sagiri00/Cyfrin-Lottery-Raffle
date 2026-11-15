@@ -162,12 +162,12 @@ contract Raffle is VRFConsumerBaseV2Plus {
             numWords: NUM_WORDS,
             extraArgs: VRFV2PlusClient._argsToBytes(VRFV2PlusClient.ExtraArgsV1({nativePayment: false}))
     });
-        uint256 requestId = s_vrfCoordinator.requestRandomWords(request);
+        s_vrfCoordinator.requestRandomWords(request);
     }
 
     // CEI (Checks-Effects-Interactions) pattern is a best practice in Solidity to prevent reentrancy attacks. It involves performing all checks first, then updating state variables, and finally interacting with external contracts or sending Ether.
 
-    function fulfillRandomWords(uint256 requestId, uint256[] calldata randomWords) internal override {
+    function fulfillRandomWords(uint256 /* requestId */, uint256[] calldata randomWords) internal override {
 
         // Checks
         // Check if the raffle is in the calculating state
