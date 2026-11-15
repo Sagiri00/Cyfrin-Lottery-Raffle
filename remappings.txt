@@ -1,0 +1,4 @@
+@chainlink/contracts/=lib/chainlink-evm/contracts/
+chainlink-evm/=lib/chainlink-evm/
+chainlink/=lib/chainlink/
+forge-std/=lib/forge-std/src/
